@@ -10,7 +10,6 @@ import ToggleArchiveButton from '../components/ToggleArchiveButton.jsx';
 import DeleteButton from '../components/DeleteButton.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 import React from 'react';
-import autoBindReact from 'auto-bind/react';
 import parser from 'html-react-parser';
 import PropTypes from 'prop-types';
 
@@ -48,8 +47,6 @@ class DetailPage extends React.Component {
     this.state = {
       note: getNote(props.id),
     };
-
-    autoBindReact(this);
   }
 
   render() {
@@ -57,9 +54,8 @@ class DetailPage extends React.Component {
     const toggleArchive = this.state.note.archived ?
         this.props.onUnArchive :
         this.props.onArchive;
-    const toggleArchiveButton = this.state.note.archived ?
-        'unarchive' :
-        'archive';
+    const toggleArchiveButton =
+        this.state.note.archived ? 'unarchive' : 'archive';
 
     return (
         <section className="detail-page">
@@ -68,8 +64,9 @@ class DetailPage extends React.Component {
           <p className="detail-page__createdAt">
             {showFormattedDate(this.state.note.createdAt)}
           </p>
-          <div className="detail-page__body">{parser(
-              this.state.note.body)}</div>
+          <div className="detail-page__body">
+            {parser(this.state.note.body)}
+          </div>
           <div className="detail-page__action">
             : <ToggleArchiveButton
               id={this.state.note.id}

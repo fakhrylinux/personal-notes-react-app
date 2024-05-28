@@ -2,7 +2,6 @@ import React from 'react';
 import {getActiveNotes} from '../utils/local-data.js';
 import NotesList from '../components/NotesList.jsx';
 import {useSearchParams} from 'react-router-dom';
-import autoBindReact from 'auto-bind/react';
 import PropTypes from 'prop-types';
 import SearchBar from '../components/SearchBar.jsx';
 
@@ -27,11 +26,9 @@ class HomePage extends React.Component {
       notes: getActiveNotes(),
       keyword: props.defaultKeyword || '',
     };
-
-    autoBindReact(this);
   }
 
-  onKeywordChangeHandler(keyword) {
+  onKeywordChangeHandler = (keyword) => {
     this.setState(() => {
       return {
         keyword,
@@ -39,7 +36,7 @@ class HomePage extends React.Component {
     });
 
     this.props.keywordChange(keyword);
-  }
+  };
 
   render() {
     const notes = this.state.notes.filter((note) => {

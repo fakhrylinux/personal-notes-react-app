@@ -1,11 +1,9 @@
 import React from 'react';
-import autoBindReact from 'auto-bind/react';
 import PropTypes from 'prop-types';
 
 class NoteInput extends React.Component {
   constructor(props) {
     super(props);
-    autoBindReact(this);
 
     this.state = {
       title: '',
@@ -15,34 +13,34 @@ class NoteInput extends React.Component {
     };
   }
 
-  onTitleChangeEventHandler(event) {
+  onTitleChangeEventHandler = (event) => {
     this.setState(() => {
       return {
         title: event.target.value,
       };
     });
-  }
+  };
 
-  onContentChangeEventHandler(event) {
+  onContentChangeEventHandler = (event) => {
     this.setState(() => {
       return {
         body: event.target.value,
       };
     });
-  }
+  };
 
-  onInputHandler(event) {
+  onInputHandler = (event) => {
     this.setState(() => {
       return {
         body: event.target.innerHTML,
       };
     });
-  }
+  };
 
-  onSubmitEventHandler(event) {
+  onSubmitEventHandler = (event) => {
     event.preventDefault();
     this.props.addNote(this.state);
-  }
+  };
 
   render() {
     return (

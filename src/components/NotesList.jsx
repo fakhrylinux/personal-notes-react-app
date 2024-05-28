@@ -1,4 +1,5 @@
 import NoteItem from './NoteItem.jsx';
+import {noteItemPropTypes} from '../prop-types/index.js';
 import PropTypes from 'prop-types';
 
 function NotesList({notes}) {
@@ -20,7 +21,7 @@ function NotesList({notes}) {
 }
 
 NotesList.propTypes = {
-  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
+  notes: PropTypes.arrayOf(PropTypes.shape(noteItemPropTypes)).isRequired,
+}
 
 export default NotesList;

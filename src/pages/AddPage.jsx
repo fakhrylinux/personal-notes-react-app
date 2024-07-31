@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { addNote } from "../utils/api.js";
 import NoteInput from "../components/NoteInput.jsx";
-// import NoteInput from '../components/NoteInput.jsx';
 
 function AddPage() {
   const navigate = useNavigate();

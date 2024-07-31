@@ -35,11 +35,8 @@ function Navigation({ logout, name }) {
         <a id="mobile-menu" className="icon">
           <i className="fa fa-bars"></i>
         </a>
-        <div>
-          <ToggleTheme />
-          {/*<span className="material-symbols-outlined">dark_mode</span>*/}
-        </div>
         <div className="profile">
+          <ToggleTheme />
           {name}
           <span
             className="material-symbols-outlined btn-logout"

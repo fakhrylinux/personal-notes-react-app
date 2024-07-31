@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export const noteItemPropTypes = {
   id: PropTypes.string.isRequired,

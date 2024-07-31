@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-function ToggleArchiveButton({id, toggleArchive, toggleInnerText}) {
-
+function ToggleArchiveButton({ id, toggleArchive, toggleInnerText }) {
   return (
-      <span
-          className="material-symbols-outlined"
-          onClick={() => toggleArchive(id)}>
-          {toggleInnerText}
-      </span>
+    <span
+      className="material-symbols-outlined"
+      onClick={() => toggleArchive(id)}
+    >
+      {toggleInnerText}
+    </span>
   );
 }
 

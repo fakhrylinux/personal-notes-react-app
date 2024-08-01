@@ -13,7 +13,7 @@ import { LocaleProvider } from "./contexts/LocaleContext.js";
 import { ThemeProvider } from "./contexts/ThemeContext.js";
 
 function NotesApp() {
-  const [locale, setLocale] = useState("id");
+  const [locale, setLocale] = useState(localStorage.getItem("locale") || "en");
   const [initializing, setInitializing] = useState(true);
   const [authedUser, setAuthedUser] = useState(null);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -39,7 +39,9 @@ function NotesApp() {
 
   const toggleLocale = () => {
     setLocale((prevLocale) => {
-      return prevLocale === "id" ? "en" : "id";
+      const newLocale = prevLocale === "id" ? "en" : "id";
+      localStorage.setItem("locale", newLocale);
+      return newLocale;
     });
   };
 
